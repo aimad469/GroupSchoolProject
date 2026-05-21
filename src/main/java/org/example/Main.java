@@ -203,7 +203,7 @@ public class Main {
             }
             else{
                 int index = Integer.valueOf(choice) -1;
-                emp.setField(Fields.get(index));
+                emp.setField(fields.get(index));
             }
         }
         boolean exitDepartmentsMenu = false;
@@ -231,7 +231,7 @@ public class Main {
             }
             else{
                 int index = Integer.valueOf(choice) -1
-;                emp.setField(Positions.get(index));
+;                emp.setPostion(positions.get(index));
             }
         }
         sortedEmployeeList.add(emp);
