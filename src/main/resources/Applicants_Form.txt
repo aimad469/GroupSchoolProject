@@ -1,4 +1,4 @@
-First name,Last name,Gender,Email,Salary,Department,Field,Position,
+First name,Last name,Gender,Email,Salary,Department,Field,Position
 Kate,Summer,Female,ksummer@TechInnovators.com,20000.00,Academic department,Maths,Teacher
 Ken,Winter,Male,kwinter@TechInnovators.com,15000.00,Academic department,English,Teacher
 James,Anderson,Male,janderson@TechInnovators.com,80000.00,Academic department,History,Teacher
