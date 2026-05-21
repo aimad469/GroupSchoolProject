@@ -131,11 +131,7 @@ public class Main {
         }
     }
 
-    public static void searchIn(List<Employee> sortedEmployeeList){
-        if(sortedEmployeeList.isEmpty()){
-            System.out.println("you should sort the list first !! ");
-            return;
-        }
+    public static void searchIn(List<Employee> sortedEmployeeList){    
         System.out.println("Please enter the First name: ");
         Scanner input1 = new Scanner(System.in);
         String firstName = input1.nextLine().trim();
