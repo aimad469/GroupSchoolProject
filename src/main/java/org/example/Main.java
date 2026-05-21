@@ -231,7 +231,7 @@ public class Main {
             }
             else{
                 int index = Integer.valueOf(choice) -1
-;                emp.setPostion(positions.get(index));
+;                emp.setPosition(positions.get(index));
             }
         }
         sortedEmployeeList.add(emp);
