@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    public final static String FILE_PATH = "src/main/resources/input";
+    public final static String FILE_PATH = "src/main/resources";
     public static void main(String[] args) {
 
         System.out.println("Please enter the filename to read: ");
