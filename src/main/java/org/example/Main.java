@@ -188,20 +188,6 @@ public class Main {
         System.out.println("Please enter the Last name: ");
         String lastName = input.nextLine().trim();
         emp.setLastName(lastName);
-        boolean exitFieldsMenu = false;
-        while(!exitFieldsMenu){
-            exitFieldsMenu = true;
-            displayFieldsMenu(fields);
-            int choice = input.nextInt();
-            if(choice < 1 || choice >= fields.size()){
-                System.out.println("Please choose a number between 1 and " + fields.size());
-                exitFieldsMenu = false;
-            }
-            else{
-                int index = Integer.valueOf(choice) -1;
-                emp.setField(fields.get(index));
-            }
-        }
         boolean exitDepartmentsMenu = false;
         while(!exitDepartmentsMenu){
             exitDepartmentsMenu = true;
@@ -216,6 +202,22 @@ public class Main {
                 emp.setDepartment(departments.get(index));
             }
         }
+        
+        boolean exitFieldsMenu = false;
+        while(!exitFieldsMenu){
+            exitFieldsMenu = true;
+            displayFieldsMenu(fields);
+            int choice = input.nextInt();
+            if(choice < 1 || choice >= fields.size()){
+                System.out.println("Please choose a number between 1 and " + fields.size());
+                exitFieldsMenu = false;
+            }
+            else{
+                int index = Integer.valueOf(choice) -1;
+                emp.setField(fields.get(index));
+            }
+        }
+        
  boolean exitPositionsMenu = false;
         while(!exitPositionsMenu){
             exitPositionsMenu = true;
