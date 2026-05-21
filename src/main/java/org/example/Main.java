@@ -179,8 +179,9 @@ public class Main {
             return;
         }
 
-        List<String> jobTiles = getFields(sortedEmployeeList);
+        List<String> fields = getFields(sortedEmployeeList);
         List<String> departments = getDepartments(sortedEmployeeList);
+        List<String> positions = getPositions(sortedEmployeeList);
         Employee emp = new Employee();
 
         System.out.println("Adding a new Employee ");
@@ -191,18 +192,18 @@ public class Main {
         System.out.println("Please enter the Last name: ");
         String lastName = input.nextLine().trim();
         emp.setLastName(lastName);
-        boolean exitJobTitlesMenu = false;
-        while(!exitJobTitlesMenu){
-            exitJobTitlesMenu = true;
-            displayJobTitlesMenu(jobTiles);
+        boolean exitFieldsMenu = false;
+        while(!exitFieldsMenu){
+            exitFieldsMenu = true;
+            displayFieldsMenu(fields);
             int choice = input.nextInt();
-            if(choice < 1 || choice >= jobTiles.size()){
-                System.out.println("Please choose a number between 1 and " + jobTiles.size());
-                exitJobTitlesMenu = false;
+            if(choice < 1 || choice >= fields.size()){
+                System.out.println("Please choose a number between 1 and " + fields.size());
+                exitFieldsMenu = false;
             }
             else{
-                int index = Integer.valueOf(choice) -1
-;                emp.setField(jobTiles.get(index));
+                int index = Integer.valueOf(choice) -1;
+                emp.setField(Fields.get(index));
             }
         }
         boolean exitDepartmentsMenu = false;
@@ -219,7 +220,20 @@ public class Main {
                 emp.setDepartment(departments.get(index));
             }
         }
-
+ boolean exitPositionsMenu = false;
+        while(!exitPositionsMenu){
+            exitPositionsMenu = true;
+            displayPositionsMenu(positions);
+            int choice = input.nextInt();
+            if(choice < 1 || choice >= positions.size()){
+                System.out.println("Please choose a number between 1 and " + positions.size());
+                exitPositionsMenu = false;
+            }
+            else{
+                int index = Integer.valueOf(choice) -1
+;                emp.setField(Positions.get(index));
+            }
+        }
         sortedEmployeeList.add(emp);
         sort(sortedEmployeeList);
         System.out.println(emp.getFirstName() + " " + emp.getLastName() + " has been added as " + emp.getField() + " to " + emp.getDepartment() + " successfully");
@@ -246,11 +260,23 @@ public class Main {
         }
         return departments;
     }
+    
+    private static List<String> getPositions(List<Employee> sortedEmployeeList){
+        List<String> positions = new ArrayList<>();
+        for (Employee emp: sortedEmployeeList) {
+            if(!positions.contains(emp.getDepartment())) {
+                positions.add(emp.getDepartment().trim());
+            }
+        }
+        return positions;
+    }
+    
+  
 
-    private static void displayJobTitlesMenu(List<String> jobTiles){
+    private static void displayFieldsMenu(List<String> fields){
         System.out.println("Please select from the following fields: ");
-        for (int i = 0; i < jobTiles.size(); i++) {
-            System.out.println(i+1 +". " + jobTiles.get(i));
+        for (int i = 0; i < fields.size(); i++) {
+            System.out.println(i+1 +". " + fields.get(i));
         }
     }
 
@@ -261,6 +287,14 @@ public class Main {
         }
     }
 
+    
+   private static void displayPositionsMenu(List<String> positions){
+        System.out.println("Please select from the following positions: ");
+        for (int i = 0; i < positions.size(); i++) {
+            System.out.println(i+1 +". " + positions.get(i));
+        }
+    } 
+   
     private static void createEmployeeTree(List<Employee> sortedEmployeeList){
 
         if(sortedEmployeeList.isEmpty()){
