@@ -79,7 +79,7 @@ public class Employee implements  Comparable<Employee>{
         return field;
     }
 
-    public void setField(String position) {
+    public void setField(String field) {
         this.field = field;
     }
 
@@ -87,7 +87,7 @@ public class Employee implements  Comparable<Employee>{
         return position;
     }
 
-    public void setPosition(String jobTitle) {
+    public void setPosition(String position) {
         this.position = position;
     }
 
