@@ -64,7 +64,7 @@ public class Main {
         }
     }
      public static void displayMenu(){
-        System.out.println("Do You wish to SORT or SEARCH: ");
+        System.out.println("choose one option from 1 to 5: ");
         System.out.println("1. " + Menu.SORT);
         System.out.println("2. " + Menu.SEARCH);
         System.out.println("3. " + Menu.ADD_RECORDS);
