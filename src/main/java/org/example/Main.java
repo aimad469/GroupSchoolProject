@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class Main {
@@ -53,7 +52,7 @@ public class Main {
                     displayMenu();
                 }
                 case "5" -> {
-                    System.out.println(Menu.EXIT + " selected, Bye Bye !!!");
+                    System.out.println(Menu.EXIT + " selected, الى اللقاء !!!");
                     exitMenu = true;
                 }
                 default -> {
@@ -188,21 +187,21 @@ public class Main {
         System.out.println("Please enter the Last name: ");
         String lastName = input.nextLine().trim();
         emp.setLastName(lastName);
-        boolean exitDepartmentsMenu = false;
-        while(!exitDepartmentsMenu){
-            exitDepartmentsMenu = true;
-            displayDepartmentsMenu(departments);
+        
+        boolean exitPositionsMenu = false;
+        while(!exitPositionsMenu){
+            exitPositionsMenu = true;
+            displayPositionsMenu(positions);
             int choice = input.nextInt();
-            if(choice < 1 || choice >=  departments.size()){
-                System.out.println("Please choose a number between 1 and " + departments.size());
-                exitDepartmentsMenu = false;
+            if(choice < 1 || choice >= positions.size()){
+                System.out.println("Please choose a number between 1 and " + positions.size());
+                exitPositionsMenu = false;
             }
             else{
-                int index = Integer.valueOf(choice) -1;
-                emp.setDepartment(departments.get(index));
+                int index = Integer.valueOf(choice) -1
+;                emp.setPosition(positions.get(index));
             }
         }
-        
         boolean exitFieldsMenu = false;
         while(!exitFieldsMenu){
             exitFieldsMenu = true;
@@ -218,23 +217,24 @@ public class Main {
             }
         }
         
- boolean exitPositionsMenu = false;
-        while(!exitPositionsMenu){
-            exitPositionsMenu = true;
-            displayPositionsMenu(positions);
+        boolean exitDepartmentsMenu = false;
+        while(!exitDepartmentsMenu){
+            exitDepartmentsMenu = true;
+            displayDepartmentsMenu(departments);
             int choice = input.nextInt();
-            if(choice < 1 || choice >= positions.size()){
-                System.out.println("Please choose a number between 1 and " + positions.size());
-                exitPositionsMenu = false;
+            if(choice < 1 || choice >=  departments.size()){
+                System.out.println("Please choose a number between 1 and " + departments.size());
+                exitDepartmentsMenu = false;
             }
             else{
-                int index = Integer.valueOf(choice) -1
-;                emp.setPosition(positions.get(index));
+                int index = Integer.valueOf(choice) -1;
+                emp.setDepartment(departments.get(index));
             }
         }
+        
         sortedEmployeeList.add(emp);
         sort(sortedEmployeeList);
-        System.out.println(emp.getFirstName() + " " + emp.getLastName() + " has been added as " + emp.getField() + " to " + emp.getDepartment() + " successfully");
+        System.out.println(emp.getFirstName() + " " + emp.getLastName() + " has been added as " + emp.getPosition() + " of " + emp.getField() + " in " + emp.getDepartment() + "successfully");
         display20firstNames(sortedEmployeeList);
 
     }
@@ -262,8 +262,8 @@ public class Main {
     private static List<String> getPositions(List<Employee> sortedEmployeeList){
         List<String> positions = new ArrayList<>();
         for (Employee emp: sortedEmployeeList) {
-            if(!positions.contains(emp.getDepartment())) {
-                positions.add(emp.getDepartment().trim());
+            if(!positions.contains(emp.getPosition())) {
+                positions.add(emp.getPosition().trim());
             }
         }
         return positions;
