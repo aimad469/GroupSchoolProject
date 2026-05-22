@@ -83,7 +83,7 @@ public class Employee implements  Comparable<Employee>{
         this.field = field;
     }
 
-    public String getPositin() {
+    public String getPosition() {
         return position;
     }
 
@@ -102,7 +102,7 @@ public class Employee implements  Comparable<Employee>{
                 ", email='" + email + '\'' +
                 ", salary='" + salary + '\'' +
                 ", department='" + department + '\'' +
-                ", jobTitle='" + field + '\'' +
+                ", field='" + field + '\'' +
                 ", position='" + position + '\'' +
                 
                 '}';
